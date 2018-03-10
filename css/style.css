@@ -55,6 +55,9 @@ Grey dark 3: #999
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (max-width: 68.75em) {
+    html {
+      font-size: 50%; } }
 
 *,
 *::after,
@@ -78,6 +81,11 @@ body {
   background-color: var(--color-grey-light-1);
   box-shadow: var(--shadow-dark);
   min-height: 50rem; }
+  @media only screen and (max-width: 75em) {
+    .container {
+      margin: 0;
+      max-width: 100%;
+      width: 100%; } }
 
 .header {
   height: 7rem;
@@ -90,6 +98,9 @@ body {
 
 .content {
   display: flex; }
+  @media only screen and (max-width: 56.25em) {
+    .content {
+      flex-direction: column; } }
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
@@ -97,7 +108,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-content: center; }
+  /*
+    @media  only screen and (max-width:$bp-medium){
+        flex-direction: row;
+    }
+    */ }
 
 .hotel-view {
   background-color: var(--color-white);
@@ -109,6 +124,9 @@ body {
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border: var(--line); }
+  @media only screen and (max-width: 56.25em) {
+    .details {
+      padding: 3rem; } }
 
 .description {
   background: #fff;
@@ -116,6 +134,10 @@ body {
   margin-right: 4.5rem;
   box-shadow: var(--shadow-light);
   padding: 3rem; }
+  @media only screen and (max-width: 56.25em) {
+    .description {
+      margin-right: 3rem;
+      padding: 2rem; } }
 
 .user-reviews {
   background-color: inherit;
@@ -166,6 +188,7 @@ body {
     fill: var(--color-grey-dark-3); }
 
 .user-nav {
+  align-self: stretch;
   display: flex;
   align-items: center; }
   .user-nav > * {
@@ -201,14 +224,23 @@ body {
     margin-right: 1rem; }
 
 .side-nav {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .side-nav {
+      display: flex;
+      margin: 0; } }
   .side-nav__item {
-    position: relative;
-    z-index: 10; }
+    position: relative; }
     .side-nav__item:not(:last-child) {
-      margin-bottom: 0.5rem; }
+      margin-bottom: .5rem; }
+      @media only screen and (max-width: 56.25em) {
+        .side-nav__item:not(:last-child) {
+          margin: 0; } }
+    @media only screen and (max-width: 56.25em) {
+      .side-nav__item {
+        flex: 1; } }
   .side-nav__item::before {
     content: "";
     position: absolute;
@@ -217,26 +249,27 @@ body {
     height: 100%;
     width: 3px;
     background-color: var(--color-primary);
-    z-index: 9;
     transform: scaleY(0);
-    transform-origin: 0% 50%;
     transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s; }
   .side-nav__item:hover::before, .side-nav__item--active::before {
     transform: scaleY(1);
     width: 100%; }
   .side-nav__item:active::before {
     background-color: var(--color-primary-light); }
-  .side-nav__link {
-    position: relative;
-    z-index: 20; }
   .side-nav__link:link, .side-nav__link:visited {
     text-decoration: none;
     color: var(--color-grey-light-1);
     text-transform: uppercase;
-    display: flex;
-    padding: 1rem 2rem;
-    justify-content: flex-start;
-    align-items: center; }
+    display: block;
+    padding: 1.5rem 3rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 20; }
+    @media only screen and (max-width: 56.25em) {
+      .side-nav__link:link, .side-nav__link:visited {
+        justify-content: center;
+        padding: 2rem; } }
   .side-nav__icon {
     width: 1.75rem;
     height: 1.75rem;
@@ -248,6 +281,9 @@ body {
   text-align: center;
   padding: 2.5rem;
   color: var(--color-grey-light-4); }
+  @media only screen and (max-width: 56.25em) {
+    .legal {
+      display: none; } }
 
 .gallery {
   display: flex; }
@@ -360,6 +396,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  .recommend__friends {
+    display: flex; }
   .recommend__photo {
     box-sizing: content-box;
     height: 4rem;
@@ -367,7 +405,7 @@ body {
     border-radius: 50%;
     border: 2px solid #fff; }
     .recommend__photo:not(:last-child) {
-      margin-right: -1.4rem; }
+      margin-right: -2rem; }
 
 .review {
   position: relative;
@@ -376,6 +414,10 @@ body {
   padding: 3rem;
   margin-bottom: 3.5rem;
   overflow: hidden; }
+  @media only screen and (max-width: 56.25em) {
+    .review {
+      margin-right: 2rem;
+      padding: 2rem; } }
   .review__text {
     margin-bottom: 2rem;
     z-index: 10;
@@ -414,6 +456,9 @@ body {
 .cta {
   padding: 3.5rem 0;
   text-align: center; }
+  @media only screen and (max-width: 56.25em) {
+    .cta {
+      padding: 2rem 0; } }
   .cta__book-now {
     font-size: 1.2rem;
     font-weight: 300;

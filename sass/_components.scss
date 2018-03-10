@@ -74,6 +74,7 @@
 //////////////////////User Nav
 
 .user-nav{
+    align-self: stretch;
     display: flex;
     align-items: center;
 
@@ -129,17 +130,34 @@
 // Side navigation
 
 .side-nav{
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     list-style: none;
     margin-top: 3.5rem;
+
+    @media only screen and (max-width: $bp-medium){
+        display: flex;
+        margin: 0;
+    }
+
     &__item{
         position: relative;
-        z-index: 10;
-
+        
         &:not(:last-child){
-            margin-bottom: 0.5rem;
+            margin-bottom: .5rem;
+
+            @media only screen and (max-width: $bp-medium){
+                margin: 0;
+            }
+        }
+
+        @media only screen and (max-width: $bp-medium){
+            flex: 1;
         }
     }
+
+
+
+
 
 
     &__item::before{
@@ -150,9 +168,7 @@
         height: 100%;
         width: 3px;
         background-color: var(--color-primary);
-        z-index: 9;
         transform: scaleY(0);
-        transform-origin: 0% 50%;
         transition: transform 0.2s,
                     width 0.4s cubic-bezier(1,0,0,1) 0.2s,
                     background-color 0.1s;
@@ -168,10 +184,7 @@
         background-color: var(--color-primary-light);
     }
     
-    &__link{
-        position: relative;
-        z-index: 20;
-    }
+    
 
 
     &__link:link,
@@ -179,11 +192,17 @@
         text-decoration: none;
         color: var(--color-grey-light-1);
         text-transform: uppercase;
-        display: flex;
-        padding: 1rem 2rem;
-        justify-content: flex-start;
+        display: block;
+        padding: 1.5rem 3rem;
+        justify-content: center;
         align-items: center;
-        
+        position: relative;
+        z-index: 20;
+        @media only screen and (max-width: $bp-medium)
+        {
+            justify-content: center;
+            padding: 2rem;
+        }
 
     }
 
@@ -195,6 +214,7 @@
     }
 }
 
+
 //legal text
 
 .legal{
@@ -202,6 +222,10 @@
     text-align: center;
     padding: 2.5rem;
     color: var(--color-grey-light-4);
+
+    @media only screen and (max-width: $bp-medium){
+        display:none;
+    }
 }
 
 //gallery
@@ -389,7 +413,7 @@
     }
 
     &__friends{
-
+        display: flex;
     }
 
     &__photo{
@@ -398,7 +422,7 @@
         width: 4rem;
         border-radius: 50%;
         &:not(:last-child){
-            margin-right: -1.4rem;
+            margin-right: -2rem;
         }
         border: 2px solid #fff;
     }
@@ -413,7 +437,10 @@
     margin-bottom: 3.5rem;
     overflow: hidden;
 
-
+    @media only screen and (max-width: $bp-medium){
+        margin-right: 2rem;
+        padding: 2rem;
+    }
 
     &__text{
         margin-bottom: 2rem;
@@ -474,6 +501,11 @@
     padding: 3.5rem 0;
     text-align: center;
 
+    @media only screen and (max-width: $bp-medium){
+        padding: 2rem 0;
+    }    
+    
+
     &__book-now{
         font-size: 1.2rem;
         font-weight: 300;
@@ -518,10 +550,7 @@
 
     &:hover &__visible{
         transform: translateY(100%);
-
     }
-
-
     &:hover &__invisible{
         top: 0;
     }
