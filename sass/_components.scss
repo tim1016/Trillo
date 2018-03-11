@@ -15,6 +15,12 @@
     justify-content: center;
     align-items: center;
 
+    @media only screen and (max-width: $bp-smallest){
+        order: 1;
+        flex: 0 0 100%;
+        align-content: space-around;
+    }
+
     &__input{
         font-family: inherit;
         font-size: inherit;
@@ -84,6 +90,9 @@
         height: 100%;
         display: flex;
         align-items: center;
+        @media only screen and (max-width: $bp-small){
+            padding: 1rem;
+        }
     } 
 
 
@@ -93,13 +102,13 @@
 
     &__icon-box{
         position: relative;
-
     }
 
     &__icon{
         height: 2.25rem;
         width: 2.25rem;
         fill: var(--color-grey-dark-2);
+
     }
 
     &__notification{
@@ -192,7 +201,7 @@
         text-decoration: none;
         color: var(--color-grey-light-1);
         text-transform: uppercase;
-        display: block;
+        display: flex;
         padding: 1.5rem 3rem;
         justify-content: center;
         align-items: center;
@@ -203,7 +212,11 @@
             justify-content: center;
             padding: 2rem;
         }
-
+        @media only screen and (max-width: $bp-small)
+        {
+            flex-direction: column;
+            padding: 1rem;
+        }
     }
 
     &__icon{
@@ -211,6 +224,12 @@
         height: 1.75rem;
         fill: currentColor;
         margin-right: 2rem;
+        @media only screen and (max-width: $bp-small){
+            margin-right: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-bottom: 0.7rem;
+        }
     }
 }
 
@@ -253,6 +272,11 @@
         font-weight: 300;
         padding: 1.5rem 3rem;
 
+        @media only screen and (max-width: $bp-small){
+            font-size: 1.75rem;
+            padding: 1rem 1.5rem;
+        }
+
     }
 
     &__stars{
@@ -271,6 +295,9 @@
         display: flex;
         font-size: 1.2rem;
         margin-right: 1.2rem;
+        @media only screen and (max-width: $bp-small){
+            margin-right: 0;
+        }
     }
 
 
@@ -283,17 +310,26 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+
+        @media only screen and (max-width: $bp-small){
+            padding: 0 1.5rem;
+        }
     }
 
     &__rating-average{
         font-size: 2.25rem;
         font-weight: 300;
+        @media only screen and (max-width: $bp-small){
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count{
         font-size: 1rem;
         font-weight: 300;
-
+        @media only screen and (max-width: $bp-small){
+            font-size: 0.5rem;
+        }
     }
 }
 
@@ -374,7 +410,14 @@
     &__item{
         flex: 0 0 50%;
         margin-bottom: 0.7rem;
+
+        @media only screen and (max-width: $bp-small){
+            flex: 0 0 100%;
+        }
+        
     }
+
+
 
     &__item::before{
         content: "";
@@ -383,16 +426,19 @@
         width: 1rem;
         margin-right: 0.5rem;
 
-        /*
+        
         background-image: url(../img/chevron-thin-right.svg);
         background-size: cover; 
-        */
-
-        background-color: var(--color-primary);
-        -webkit-mask-image: url(../img/chevron-thin-right.svg);
-        -webkit-mask-size: cover;
-        mask-image: url(../img/chevron-thin-right.svg);
-        mask-size: cover;
+        
+// Below is an example of a feature query
+        @supports (-webkit-mask-image: url()) or (mask-image:url()){
+            background-color: var(--color-primary);
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+            background-image: none;
+        }
 
     }
 }
@@ -407,6 +453,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+
 
     &__count{
 
@@ -440,6 +488,10 @@
     @media only screen and (max-width: $bp-medium){
         margin-right: 2rem;
         padding: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-medium){
+        margin-right: 0;
     }
 
     &__text{
